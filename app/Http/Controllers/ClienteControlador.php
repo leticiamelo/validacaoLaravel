@@ -37,7 +37,32 @@ class ClienteControlador extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $regras = [
+            'nome' => 'required|min:3|max:20!unique:clientes',
+            'idade'=> 'required',
+            'endereco'=> 'required!min:5',
+            'email'=> 'required!email'
+        ];
+        $mensagens = [
+            'nome.required' => 'O nome é requerido'
+        ];
+        $request->validate($regras, $mensagens);
+ /*       //validações dos campos
+        //'nome' é o nome do input e 'clientes' é o nome da tabela na bd.
+        $request->validate([
+            'nome' => 'required|min:3|max:20!unique:clientes',
+            'idade'=> 'required',
+            'endereco'=> 'required!min:5',
+            'email'=> 'required!email'
+        ]);
+*/        
+        $cliente = new Cliente();
+        $cliente->nome=$request->input('nome');
+        $cliente->idade=$request->input('idade');
+        $cliente->endereco=$request->input('endereco');
+        $cliente->email=$request->input('email');
+        $cliente->();
     }
 
     /**
