@@ -51,8 +51,6 @@ class ClienteControlador extends Controller
             'nome.min' => 'É necessário no mínimo 3 caracteres no nome',
             'email.required' => 'Digite o endereço de email',
             'email.email' => 'Digite um endereço de email válido'
-
-
         ];
         $request->validate($regras, $mensagens);
  /*       //validações dos campos
