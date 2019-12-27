@@ -45,7 +45,14 @@ class ClienteControlador extends Controller
             'email'=> 'required!email'
         ];
         $mensagens = [
-            'nome.required' => 'O nome é requerido'
+            //Em ':attribute' aparecerá o nome do campo.
+            'required' => 'O atributo :attribute é requerido',
+            'nome.required' => 'O nome é requerido',
+            'nome.min' => 'É necessário no mínimo 3 caracteres no nome',
+            'email.required' => 'Digite o endereço de email',
+            'email.email' => 'Digite um endereço de email válido'
+
+
         ];
         $request->validate($regras, $mensagens);
  /*       //validações dos campos
