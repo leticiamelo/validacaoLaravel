@@ -41,8 +41,8 @@ class ClienteControlador extends Controller
         $regras = [
             'nome' => 'required|min:3|max:20!unique:clientes',
             'idade'=> 'required',
-            'endereco'=> 'required!min:5',
-            'email'=> 'required!email'
+            'endereco'=> 'required|min:5',
+            'email'=> 'required|email'
         ];
         $mensagens = [
             //Em ':attribute' aparecerá o nome do campo.
@@ -67,7 +67,7 @@ class ClienteControlador extends Controller
         $cliente->idade=$request->input('idade');
         $cliente->endereco=$request->input('endereco');
         $cliente->email=$request->input('email');
-        $cliente->();
+        $cliente->save();
     }
 
     /**
